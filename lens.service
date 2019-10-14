@@ -1,0 +1,16 @@
+[Unit]
+Description=Lens Photo Sharing
+
+[Service]
+Type=simple
+User=lens
+Group=lens
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=5001"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/lens/lens
+ExecStart=/bin/bash /home/lens/lens/start.sh
+
+[Install]
+WantedBy=multi-user.target
