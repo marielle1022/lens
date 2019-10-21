@@ -27,7 +27,7 @@ defmodule LensWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Users.get_user!(id)
+    user = Users.get_user_with_photos!(id)
     render(conn, "show.html", user: user)
   end
 

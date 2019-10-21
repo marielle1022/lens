@@ -6,6 +6,8 @@ defmodule Lens.Users.User do
     field :email, :string
     field :name, :string
 
+    has_many :photos, Lens.Photos.Photo
+
     timestamps()
   end
 
