@@ -1,5 +1,9 @@
 <h1>Show User</h1>
 
+<%= if @user.id == @current_user.id do %>
+  <p><%= link "Edit Profile", to: Routes.user_path(@conn, :edit, @user) %></p>
+<% end %>
+
 <ul>
 
   <li>
@@ -15,12 +19,15 @@
 
 <h2>Photos</h2>
 
-<p><%= link("New Photo", to: Routes.photo_path(@conn, :new)) %></p>
+<%= if @user.id == @current_user.id do %>
+  <p><%= link("New Photo", to: Routes.photo_path(@conn, :new)) %></p>
+<% end %>
 
 <div class="row">
   <%= for photo <- @user.photos do %>
     <div class="card col-4">
-      <%= img_tag(Routes.photo_path(@conn, :file, photo), class: "card-img-top") %>
+      <%= link(img_tag(Routes.photo_path(@conn, :file, photo), class: "card-img-top"),
+        to: Routes.photo_path(@conn, :show, photo)) %>
       <div class="card-body">
         <p><%= photo.desc %></p>
       </div>
@@ -28,7 +35,3 @@
   <% end %>
 </div>
 
-<p>
-  <span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>
-  <span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>
-</p>

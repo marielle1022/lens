@@ -21,6 +21,13 @@ defmodule Lens.Photos do
     Repo.all(Photo)
   end
 
+  def recent_photos(nn) do
+    Repo.all from pp in Photo,
+      order_by: [desc: pp.inserted_at],
+      preload: [:user],
+      limit: ^nn
+  end
+
   @doc """
   Gets a single photo.
 
