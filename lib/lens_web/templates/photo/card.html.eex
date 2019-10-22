@@ -4,7 +4,23 @@
     to: Routes.photo_path(@conn, :show, @photo)) %>
   <div class="card-body">
     <p>User: <%= link(@photo.user.name,
-             to: Routes.user_path(@conn, :show, @photo.user)) %>
+             to: Routes.user_path(@conn, :show, @photo.user)) %></p>
     <p><%= @photo.desc %></p>
+
+    <div class="photo-tags" data-photo-id="<%= @photo.id %>">
+      <p class="tag-list">Tags:
+        <%= for pt <- @photo.photo_tags do %>
+          <%= render LensWeb.TagView, "tag.html", Map.put(assigns, :pt, pt) %>
+        <% end %>
+      </p>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control">
+        </div>
+        <div class="col">
+          <button class="add-tag-btn btn btn-secondary">Add Tag</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

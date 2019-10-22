@@ -41,7 +41,7 @@ defmodule Lens.Users do
   def get_user_with_photos!(id) do
     Repo.one from uu in User,
       where: uu.id == ^id,
-      preload: [photos: :user]
+      preload: [photos: [:user, :tags, :photo_tags]]
   end
 
   def get_user_by_email(email) do

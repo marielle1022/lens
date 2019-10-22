@@ -8,6 +8,8 @@ defmodule Lens.Photos.Photo do
     field :uuid, :string
 
     belongs_to :user, Lens.Users.User
+    has_many :photo_tags, Lens.Tags.PhotoTag
+    has_many :tags, through: [:photo_tags, :tag]
 
     field :photo_upload, :any, virtual: true
 

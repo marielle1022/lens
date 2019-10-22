@@ -24,7 +24,7 @@ defmodule Lens.Photos do
   def recent_photos(nn) do
     Repo.all from pp in Photo,
       order_by: [desc: pp.inserted_at],
-      preload: [:user],
+      preload: [:user, :photo_tags, :tags],
       limit: ^nn
   end
 
@@ -45,7 +45,7 @@ defmodule Lens.Photos do
   def get_photo!(id) do
     Repo.one! from p in Photo,
       where: p.id == ^id,
-      preload: [:user]
+      preload: [:user, :photo_tags, :tags]
   end
 
   @doc """

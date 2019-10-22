@@ -1,0 +1,6 @@
+<span class="badge badge-secondary"
+      data-tag-id="<%= @pt.tag.id %>"
+      data-photo-tag-id="<%= @pt.id %>">
+  <%= @pt.tag.name %>
+  <a href="#" class="badge badge-secondary tag-delete">&times;</a>
+</span>
