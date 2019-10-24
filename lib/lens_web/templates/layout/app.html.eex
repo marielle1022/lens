@@ -19,8 +19,10 @@
         <div class="col-4">
           <ul class="navbar-nav mr-auto">
             <%= nav_link(@conn, "Home", Routes.page_path(@conn, :index)) %>
-            <%= nav_link(@conn, "Your Photos",
-              Routes.user_path(@conn, :show, @current_user)) %>
+            <%= if @current_user do %>
+              <%= nav_link(@conn, "Your Photos",
+                Routes.user_path(@conn, :show, @current_user)) %>
+            <% end %>
             <%= nav_link(@conn, "Users", Routes.user_path(@conn, :index)) %>
           </ul>
         </div>
