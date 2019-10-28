@@ -9,21 +9,6 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-light bg-white">
-        <div class="col-4">
-          <a class="navbar-brand" href="#">Lens</a>
-        </div>
-        <div class="col-8">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">All Photos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Your Photos</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
       <div>
         <%= if get_flash(@conn, :info) do %>
           <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
