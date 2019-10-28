@@ -12,8 +12,9 @@ defmodule LensWeb.PhotoView do
 
   def render("photo.json", %{photo: photo}) do
     %{id: photo.id,
+      user_id: photo.user_id,
       filename: photo.filename,
       desc: photo.desc,
-      uuid: photo.uuid}
+      data: photo.data}
   end
 end

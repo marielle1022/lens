@@ -42,6 +42,7 @@ module.exports = (env, options) => ({
       },
     ]
   },
+  devtool: 'cheap-module-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss'],
   },
