@@ -9,19 +9,28 @@ defmodule LensWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
+  pipeline :ajax do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
+  scope "/ajax", LensWeb do
+    pipe_through :ajax
+
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/photos", PhotoController, except: [:new, :edit]
+    get "/photos/:id/file", PhotoController, :file
+    resources "/tags", TagController, except: [:new, :edit]
+    resources "/photo_tags", PhotoTagController, except: [:new, :edit]
   end
 
   scope "/", LensWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/users", PageController, :index
+    get "/*path", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", LensWeb do
-  #   pipe_through :api
-  # end
 end
