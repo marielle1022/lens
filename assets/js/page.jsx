@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink, Link } from 'react-rou
 import { Navbar, Nav } from 'react-bootstrap';
 import { Provider, connect } from 'react-redux';
 
+import PhotosList from './photos/index';
 import PhotosNew from './photos/new';
 import PhotosShow from './photos/show';
 
@@ -43,7 +44,7 @@ function Page(props) {
 
       <Switch>
         <Route exact path="/">
-          <h1>Home</h1>
+          <PhotosList />
         </Route>
 
         <Route exact path="/users">
