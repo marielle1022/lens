@@ -24,6 +24,7 @@ defmodule LensWeb.Router do
     get "/photos/:id/file", PhotoController, :file
     resources "/tags", TagController, except: [:new, :edit]
     resources "/photo_tags", PhotoTagController, except: [:new, :edit]
+    resources "/sessions", SessionController, only: [:create], singleton: true
   end
 
   scope "/", LensWeb do
