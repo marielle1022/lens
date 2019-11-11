@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render photo card 1`] = `
+<div
+  className="col-4 card"
+>
+  <img
+    className="card-img"
+    src="about:blank"
+  />
+  <p
+    className="card-text"
+  >
+    no photo
+  </p>
+</div>
+`;
