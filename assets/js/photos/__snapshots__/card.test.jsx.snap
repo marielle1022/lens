@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render photo card 1`] = `
+exports[`render photo card snapshot 1`] = `
 <div
   className="col-4 card"
 >

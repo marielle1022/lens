@@ -6,6 +6,9 @@
     "watch": "webpack --mode development --watch",
     "test": "jest"
   },
+  "jest": {
+    "setupFiles": ["jest-localstorage-mock"]
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "deep-freeze-strict": "^1.1.1",
@@ -26,12 +29,14 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.6.3",
+    "@testing-library/react": "^9.3.2",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.0",
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^2.1.1",
     "fibers": "^4.0.1",
     "jest": "^24.9.0",
+    "jest-localstorage-mock": "^2.4.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-gyp": "^6.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

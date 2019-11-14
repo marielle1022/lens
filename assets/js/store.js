@@ -78,7 +78,7 @@ function session(st0 = session0, action) {
   }
 }
 
-function root_reducer(st0, action) {
+export function root_reducer(st0, action) {
   console.log("root reducer", st0, action);
   let reducer = combineReducers({
     forms,
