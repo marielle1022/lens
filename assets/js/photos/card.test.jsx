@@ -6,5 +6,6 @@ import PhotoCard from './card';
 test('render photo card', () => {
   const photo  = { data: "about:blank", desc: "no photo" };
   const result = RTR.create(<PhotoCard photo={photo} />);
+  console.log(result.root);
   expect(result).toMatchSnapshot();
 });
